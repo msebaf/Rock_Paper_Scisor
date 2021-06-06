@@ -42,14 +42,47 @@ let b = computerPlay();
 
     if (a==b) {
         alert("Yo elegi " + b + ". Es un empate");
+        
     }
     else if 
      (((a== "rock") && (b == "scisor")) || ((a == "scisor") && (b == "paper")) || ((a=="paper") && (b == "rock"))){
          alert("Yo elegi " + b + ". Ganaste!");
+         return(true);
      }
      else {
          alert("Yo elegi " + b + ". Perdiste");
+         return(false)
      }
 
+}
+
+function playRound(){
+    
+    let wons=0;
+    let lost=0;
+    for (i=0; i<5; i++){
+      let result = play();
+      if (result==false) {
+          lost++
+          console.log("ganados "+wons+" perdidos "+lost);
+      }
+          
+      
+      else if (result==true){
+          wons++
+          console.log("ganados "+wons+ " perdidos"+ lost);
+      }
+     
+
+    }
+    if (wons>lost){
+        alert("Ganaste el juego!!!")
+    }
+    else if (wons  == lost){
+        alert("Es un empate!")
+    }
+    else{
+        alert("Perdiste el juego")
+    }
 }
 
